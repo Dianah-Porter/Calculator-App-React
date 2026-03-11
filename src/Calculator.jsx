@@ -39,6 +39,7 @@ import Button from './Button'
             {buttons.map((btn, index)=>{
                 return (<Button text={btn}
                     key={index}
+                    className={`${btn === '0' ? "col-span-2" : "col-span-1"}`}
                     onClick={handleClick}
                 />);
             }        
