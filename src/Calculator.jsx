@@ -35,7 +35,7 @@ import Button from './Button'
         setWaitingForNumber(false);
         return;
         }
-        if(display === '0'){
+        if(display === '0' || result){
             setDisplay(num);
         }
         else{
