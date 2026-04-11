@@ -66,6 +66,7 @@ import Button from './Button'
 
     }
     return (  
+        
         <div className='w-75 border-2 mx-auto my-3 bg-gray-950 p-3 rounded-2xl'>
             <h1 className=" text-2xl py-4 text-white  ">My Calculator App</h1>
             <input type="text"
