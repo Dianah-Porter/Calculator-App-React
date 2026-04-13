@@ -18,14 +18,30 @@ const useGetUserById = (userId) =>{
                             fetch('https://jsonplaceholder.typicode.com/users'),
                             fetch('https://jsonplaceholder.typicode.com/posts')
                         ]);
-                if(!userRes.ok || !postRes.ok) throw new Error("")
+                if(!userRes.ok || !postRes.ok) throw new Error("Failed to fetch data!");
+
+                const usersData = await userRes.json();
+                const postsData = await postRes.json();
+                // console.log(userRes);
+                // console.log(postsData)
+
+                const selectedUser = usersData.find(u => u.id === userId);
+                const userPosts = postsData.filter(p => p.userId === userId);
+
+                setUser(selectedUser);
+                setPosts(userPosts);
+
             }
             catch(err){
-                setError(err);
+                setError(err.message || "Something went wrong!");
+            }
+            finally{
+                setLoading(false);
             }
             
         }
-    });
+        fetchData();
+    }, [userId]);
     return {user, posts, loading, error};
 };
 export default useGetUserById;
