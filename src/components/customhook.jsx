@@ -22,8 +22,8 @@ const useGetUserById = (userId) =>{
 
                 const usersData = await userRes.json();
                 const postsData = await postRes.json();
-                // console.log(userRes);
-                // console.log(postsData)
+                console.log(userRes);
+                console.log(postsData)
 
                 const selectedUser = usersData.find(u => u.id === userId);
                 const userPosts = postsData.filter(p => p.userId === userId);
